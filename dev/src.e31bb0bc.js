@@ -34349,7 +34349,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var fetchCharacters = fetch('https://gateway.marvel.com:443/v1/public/characters?apikey=d54085a32009432805ffa8746025c8f5&hash=056c2dbfa6bc4260c65e8235dba5dc64&ts=1600986257891').then(function (res) {
+var fetchCharacters = fetch('https://gateway.marvel.com:443/v1/public/characters?limit=100&apikey=d54085a32009432805ffa8746025c8f5&hash=056c2dbfa6bc4260c65e8235dba5dc64&ts=1600986257891').then(function (res) {
   if (res.ok) {
     return res.json();
   }
@@ -34394,7 +34394,197 @@ function _toConsumableArray(arr) {
 }
 
 module.exports = _toConsumableArray;
-},{"./arrayWithoutHoles":"../node_modules/@babel/runtime/helpers/arrayWithoutHoles.js","./iterableToArray":"../node_modules/@babel/runtime/helpers/iterableToArray.js","./unsupportedIterableToArray":"../node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js","./nonIterableSpread":"../node_modules/@babel/runtime/helpers/nonIterableSpread.js"}],"container/Home.jsx":[function(require,module,exports) {
+},{"./arrayWithoutHoles":"../node_modules/@babel/runtime/helpers/arrayWithoutHoles.js","./iterableToArray":"../node_modules/@babel/runtime/helpers/iterableToArray.js","./unsupportedIterableToArray":"../node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js","./nonIterableSpread":"../node_modules/@babel/runtime/helpers/nonIterableSpread.js"}],"components/IconText/index.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject3() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  color: #fa7c7c;\n  cursor: pointer;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 17px;\n  margin-right: 10px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin-left: 15px;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var IconTextWrapper = _styledComponents.default.div(_templateObject());
+
+var Icon = _styledComponents.default.img(_templateObject2());
+
+var FilterText = _styledComponents.default.span(_templateObject3());
+
+var IconText = function IconText(_ref) {
+  var icon = _ref.icon,
+      text = _ref.text,
+      handleClick = _ref.handleClick;
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(IconTextWrapper, null,
+    /*#__PURE__*/
+    _react.default.createElement(Icon, {
+      src: icon,
+      alt: ""
+    }),
+    /*#__PURE__*/
+    _react.default.createElement(FilterText, {
+      onClick: handleClick
+    }, text))
+  );
+};
+
+var _default = IconText;
+exports.default = _default;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"assets/images/icon/noun_Superhero_2227044@3x.png":[function(require,module,exports) {
+module.exports = "/noun_Superhero_2227044@3x.04f71bbf.png";
+},{}],"assets/images/icon/Path@3x.png":[function(require,module,exports) {
+module.exports = "/Path@3x.85eb91bb.png";
+},{}],"assets/images/icon/Path_Copy2@3x.png":[function(require,module,exports) {
+module.exports = "/Path_Copy2@3x.c1d5ba21.png";
+},{}],"container/styles.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FavIcon = exports.CardInfo = exports.Card = exports.CardWrapper = exports.Wrapper = exports.FilterGroup = exports.FilterBar = void 0;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject7() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 17px;\n  cursor: pointer;\n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  font-size: 14px;\n  font-weight: 600;\n  color: #404040;\n\n  > a {\n    color: #404040;\n    text-decoration: none;\n  }\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  align-items: center;\n  display: flex;\n  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);\n  color: #000;\n  flex-direction: column;\n  justify-content: center;\n  margin: 0 0 15px 15px;\n  padding: 12px;\n  width: 23%;\n\n  > a {\n    img {\n      margin: 0 0 20px;\n      width: 100%;\n      height: 174px;\n      border-bottom: 4px solid #e92829;\n    }\n  }\n\n  &:hover {\n    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: #fff;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 998px;\n  margin: 0 auto;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin-left: auto;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 0 30px;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  color: #b9b9b9;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var FilterBar = _styledComponents.default.div(_templateObject());
+
+exports.FilterBar = FilterBar;
+
+var FilterGroup = _styledComponents.default.div(_templateObject2());
+
+exports.FilterGroup = FilterGroup;
+
+var Wrapper = _styledComponents.default.div(_templateObject3());
+
+exports.Wrapper = Wrapper;
+
+var CardWrapper = _styledComponents.default.div(_templateObject4());
+
+exports.CardWrapper = CardWrapper;
+
+var Card = _styledComponents.default.div(_templateObject5());
+
+exports.Card = Card;
+
+var CardInfo = _styledComponents.default.div(_templateObject6());
+
+exports.CardInfo = CardInfo;
+
+var FavIcon = _styledComponents.default.img(_templateObject7());
+
+exports.FavIcon = FavIcon;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"container/Home.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34407,6 +34597,18 @@ var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _IconText = _interopRequireDefault(require("../components/IconText"));
+
+var _noun_Superhero_22270443x = _interopRequireDefault(require("../assets/images/icon/noun_Superhero_2227044@3x.png"));
+
+var _Path3x = _interopRequireDefault(require("../assets/images/icon/Path@3x.png"));
+
+var _Path_Copy23x = _interopRequireDefault(require("../assets/images/icon/Path_Copy2@3x.png"));
+
+var _styles = require("./styles");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -34431,11 +34633,6 @@ var Home = function Home(_ref) {
       _useState6 = (0, _slicedToArray2.default)(_useState5, 2),
       favArr = _useState6[0],
       setFavArr = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(),
-      _useState8 = (0, _slicedToArray2.default)(_useState7, 2),
-      currentFavID = _useState8[0],
-      setCurrentFavID = _useState8[1];
 
   (0, _react.useEffect)(function () {
     setData(characters);
@@ -34464,48 +34661,91 @@ var Home = function Home(_ref) {
     setSort(!sort);
   };
 
-  var handleFavorite = function handleFavorite(id) {
-    setCurrentFavID(id);
+  var handleShowFavs = function handleShowFavs() {
+    if (favArr.length > 0) setData(favArr);
+  };
+
+  var handleFavorite = function handleFavorite(value) {
+    var hasFav = favArr.some(function (fav) {
+      return fav.id === value.id;
+    });
 
     if (favArr.length < 5) {
-      if (currentFavID !== id) {
-        setFavArr(favArr.concat([{
-          id: id
-        }]));
+      if (!hasFav) {
+        setFavArr(favArr.concat([value]));
+      } else {
+        var newFavArr = favArr.filter(function (f) {
+          return f.id !== value.id;
+        });
+        setFavArr(newFavArr);
       }
     }
   };
 
-  console.log({
-    currentFavID: currentFavID
-  });
-  console.log('depois', favArr);
   return (
     /*#__PURE__*/
-    _react.default.createElement(_react.default.Fragment, null,
+    _react.default.createElement(_styles.Wrapper, null,
     /*#__PURE__*/
-    _react.default.createElement("h1", null, "Home"),
+    _react.default.createElement(_styles.FilterBar, null, data.length > 1 ? "Encontrados ".concat(data.length, " her\xF3is") : "Encontrado ".concat(data.length, " her\xF3i"),
     /*#__PURE__*/
-    _react.default.createElement("span", {
-      onClick: function onClick() {
+    _react.default.createElement(_styles.FilterGroup, null,
+    /*#__PURE__*/
+    _react.default.createElement(_IconText.default, {
+      icon: _noun_Superhero_22270443x.default,
+      text: "Ordernar por nome - A/Z",
+      handleClick: function handleClick() {
         return handleOrderByName();
       }
-    }, "Ordernar por nome A/Z"),
+    }),
     /*#__PURE__*/
-    _react.default.createElement("br", null),
+    _react.default.createElement(_IconText.default, {
+      icon: _Path3x.default,
+      text: "Somente favoritos",
+      handleClick: function handleClick() {
+        return handleShowFavs();
+      }
+    }))),
     /*#__PURE__*/
-    _react.default.createElement("span", null, "Listar por favoritos"),
-    /*#__PURE__*/
-    _react.default.createElement("ul", null, data.map(function (character) {
+    _react.default.createElement(_styles.CardWrapper, null, data.map(function (character) {
+      var checkFav = favArr.some(function (item) {
+        return item.id === character.id;
+      });
+      var detailUrl = character.name.toLowerCase().replace(/ /g, '-');
       return (
         /*#__PURE__*/
-        _react.default.createElement("li", null, character.name,
+        _react.default.createElement(_styles.Card, null,
         /*#__PURE__*/
-        _react.default.createElement("span", {
-          onClick: function onClick() {
-            return handleFavorite(character.id);
+        _react.default.createElement(_reactRouterDom.Link, {
+          to: {
+            pathname: "/details/".concat(detailUrl),
+            query: {
+              id: character.id
+            }
           }
-        }, " favoritar"))
+        },
+        /*#__PURE__*/
+        _react.default.createElement("img", {
+          src: "".concat(character.thumbnail.path, ".").concat(character.thumbnail.extension),
+          alt: character.name
+        })),
+        /*#__PURE__*/
+        _react.default.createElement(_styles.CardInfo, null,
+        /*#__PURE__*/
+        _react.default.createElement(_reactRouterDom.Link, {
+          to: {
+            pathname: "/details/".concat(detailUrl),
+            query: {
+              id: character.id
+            }
+          }
+        }, character.name),
+        /*#__PURE__*/
+        _react.default.createElement(_styles.FavIcon, {
+          src: checkFav ? _Path3x.default : _Path_Copy23x.default,
+          onClick: function onClick() {
+            return handleFavorite(character);
+          }
+        })))
       );
     })))
   );
@@ -34513,7 +34753,227 @@ var Home = function Home(_ref) {
 
 var _default = Home;
 exports.default = _default;
-},{"@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js"}],"components/Footer/index.jsx":[function(require,module,exports) {
+},{"@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/IconText":"components/IconText/index.jsx","../assets/images/icon/noun_Superhero_2227044@3x.png":"assets/images/icon/noun_Superhero_2227044@3x.png","../assets/images/icon/Path@3x.png":"assets/images/icon/Path@3x.png","../assets/images/icon/Path_Copy2@3x.png":"assets/images/icon/Path_Copy2@3x.png","./styles":"container/styles.jsx"}],"container/Details.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _styles = require("./styles");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject3() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 100%;\n\n  > img {\n    width: 240px;\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 300px;\n  margin-right: 20px;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var HeroWrapper = _styledComponents.default.div(_templateObject());
+
+var HeroInfo = _styledComponents.default.div(_templateObject2());
+
+var HeroPic = _styledComponents.default.div(_templateObject3());
+
+var Details = function Details(_ref) {
+  var characters = _ref.characters;
+  var location = (0, _reactRouterDom.useLocation)();
+  var id = location.query.id;
+  var findChar = characters.filter(function (char) {
+    return char.id === id;
+  });
+  console.log(findChar);
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_styles.Wrapper, null,
+    /*#__PURE__*/
+    _react.default.createElement(HeroWrapper, null,
+    /*#__PURE__*/
+    _react.default.createElement(HeroInfo, null,
+    /*#__PURE__*/
+    _react.default.createElement("h1", null, findChar[0].name),
+    /*#__PURE__*/
+    _react.default.createElement("p", null, findChar[0].description)),
+    /*#__PURE__*/
+    _react.default.createElement(HeroPic, null,
+    /*#__PURE__*/
+    _react.default.createElement("img", {
+      src: "".concat(findChar[0].thumbnail.path, ".").concat(findChar[0].thumbnail.extension)
+    }))))
+  );
+};
+
+var _default = Details;
+exports.default = _default;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./styles":"container/styles.jsx"}],"assets/images/logo/Group@3x.png":[function(require,module,exports) {
+module.exports = "/Group@3x.1b905090.png";
+},{}],"assets/images/icon/Shape@3x.png":[function(require,module,exports) {
+module.exports = "/Shape@3x.2069bf6d.png";
+},{}],"components/Header/index.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _Group3x = _interopRequireDefault(require("../../assets/images/logo/Group@3x.png"));
+
+var _Shape3x = _interopRequireDefault(require("../../assets/images/icon/Shape@3x.png"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject6() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 20px;\n  margin-right: 20px;\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 0 50px;\n  padding: 20px;\n  width: 650px;\n  background: #fdecec;\n  border-radius: 30px;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n\n  input {\n    width: 100%;\n    background: transparent;\n    border: none;\n    outline: none;\n\n    ::placeholder {\n      color: #fa7c7c;\n      letter-spacing: 1px;\n    }\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 0 50px;\n  font-size: 12px;\n  color: #8c8c8c;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 10px 0 15px;\n  font-size: 28px;\n  text-transform: uppercase;\n  color: #404040;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 260px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var HeaderWrapper = _styledComponents.default.div(_templateObject());
+
+var Logo = _styledComponents.default.img(_templateObject2());
+
+var Title = _styledComponents.default.h1(_templateObject3());
+
+var Disclaimer = _styledComponents.default.p(_templateObject4());
+
+var InputSearch = _styledComponents.default.div(_templateObject5());
+
+var SearchIcon = _styledComponents.default.img(_templateObject6());
+
+var Header = function Header() {
+  var location = (0, _reactRouterDom.useLocation)();
+  var pathname = location.pathname;
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(HeaderWrapper, null,
+    /*#__PURE__*/
+    _react.default.createElement(_reactRouterDom.Link, {
+      to: "/"
+    },
+    /*#__PURE__*/
+    _react.default.createElement(Logo, {
+      src: _Group3x.default
+    })), pathname === '/' &&
+    /*#__PURE__*/
+    _react.default.createElement(_react.default.Fragment, null,
+    /*#__PURE__*/
+    _react.default.createElement(Title, null, "Explore o Universo"),
+    /*#__PURE__*/
+    _react.default.createElement(Disclaimer, null, "Mergulhe no dom\xEDnio deslumbrante de todos os personagens cl\xE1ssicos que voc\xEA ama - e aqueles que voc\xEA descobrir\xE1 em breve!"),
+    /*#__PURE__*/
+    _react.default.createElement(InputSearch, null,
+    /*#__PURE__*/
+    _react.default.createElement(SearchIcon, {
+      src: _Shape3x.default
+    }),
+    /*#__PURE__*/
+    _react.default.createElement("input", {
+      type: "text",
+      placeholder: "Procure por her\xF3is"
+    }))))
+  );
+};
+
+var _default = Header;
+exports.default = _default;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../assets/images/logo/Group@3x.png":"assets/images/logo/Group@3x.png","../../assets/images/icon/Shape@3x.png":"assets/images/icon/Shape@3x.png"}],"components/Footer/index.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34530,7 +34990,7 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  var data = (0, _taggedTemplateLiteral2.default)(["\n  background-color: #FC1711;\n  height: 158px;\n  width: 100%;\n"]);
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  background-color: #fc1711;\n  height: 70px;\n  width: 100%;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -34544,7 +35004,7 @@ var FooterComponent = _styledComponents.default.footer(_templateObject());
 var Footer = function Footer() {
   return (
     /*#__PURE__*/
-    _react.default.createElement(FooterComponent, null, "Gui")
+    _react.default.createElement(FooterComponent, null)
   );
 };
 
@@ -34564,11 +35024,17 @@ var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/hel
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _styledComponents = require("styled-components");
 
 var _fetchCharacters = _interopRequireDefault(require("./utils/fetchCharacters"));
 
 var _Home = _interopRequireDefault(require("./container/Home"));
+
+var _Details = _interopRequireDefault(require("./container/Details"));
+
+var _Header = _interopRequireDefault(require("./components/Header"));
 
 var _Footer = _interopRequireDefault(require("./components/Footer"));
 
@@ -34579,7 +35045,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  var data = (0, _taggedTemplateLiteral2.default)(["\n  body {\n    padding: 0;\n    margin: 0;\n    font-family: 'Work Sans', sans-serif;\n\n    * {\n      box-sizing: border-box;\n    }\n  }\n"]);
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  body {\n    padding: 0;\n    margin: 0;\n    font-family: 'Work Sans', sans-serif;\n    background: ", ";\n\n    * {\n      box-sizing: border-box;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -34588,7 +35054,10 @@ function _templateObject() {
   return data;
 }
 
-var GlobalStyle = (0, _styledComponents.createGlobalStyle)(_templateObject());
+var GlobalStyle = (0, _styledComponents.createGlobalStyle)(_templateObject(), function (_ref) {
+  var color = _ref.color;
+  return color;
+});
 
 var App = function App() {
   var _useState = (0, _react.useState)(),
@@ -34596,6 +35065,8 @@ var App = function App() {
       characters = _useState2[0],
       setCharacters = _useState2[1];
 
+  var location = (0, _reactRouterDom.useLocation)();
+  var pathname = location.pathname;
   (0, _react.useEffect)(function () {
     _fetchCharacters.default.then(function (res) {
       setCharacters(res);
@@ -34605,11 +35076,38 @@ var App = function App() {
     /*#__PURE__*/
     _react.default.createElement(_react.default.Fragment, null,
     /*#__PURE__*/
-    _react.default.createElement(GlobalStyle, null),
-    /*#__PURE__*/
-    _react.default.createElement(_Home.default, {
-      characters: characters
+    _react.default.createElement(GlobalStyle, {
+      color: pathname !== '/' ? '#E7F6E7' : 'transparent'
     }),
+    /*#__PURE__*/
+    _react.default.createElement(_Header.default, null),
+    /*#__PURE__*/
+    _react.default.createElement(_reactRouterDom.Switch, null,
+    /*#__PURE__*/
+    _react.default.createElement(_reactRouterDom.Route, {
+      path: "/",
+      exact: true,
+      render: function render() {
+        return (
+          /*#__PURE__*/
+          _react.default.createElement(_Home.default, {
+            characters: characters
+          })
+        );
+      }
+    }),
+    /*#__PURE__*/
+    _react.default.createElement(_reactRouterDom.Route, {
+      path: "/details",
+      render: function render() {
+        return (
+          /*#__PURE__*/
+          _react.default.createElement(_Details.default, {
+            characters: characters
+          })
+        );
+      }
+    })),
     /*#__PURE__*/
     _react.default.createElement(_Footer.default, null))
   );
@@ -34617,7 +35115,7 @@ var App = function App() {
 
 var _default = App;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./utils/fetchCharacters":"utils/fetchCharacters.js","./container/Home":"container/Home.jsx","./components/Footer":"components/Footer/index.jsx"}],"index.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./utils/fetchCharacters":"utils/fetchCharacters.js","./container/Home":"container/Home.jsx","./container/Details":"container/Details.jsx","./components/Header":"components/Header/index.jsx","./components/Footer":"components/Footer/index.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34675,7 +35173,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55502" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65356" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
