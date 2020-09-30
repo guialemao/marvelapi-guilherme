@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import fetchCharacters from './utils/fetchCharacters';
+import { fetchCharacters } from './utils/fetchData';
 
 import Home from './container/Home';
 import Details from './container/Details';

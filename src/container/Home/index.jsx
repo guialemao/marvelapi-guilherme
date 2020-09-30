@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import IconText from '../components/IconText';
-import HeroIcon from '../assets/images/icon/noun_Superhero_2227044@3x.png';
-import HeartFilled from '../assets/images/icon/Path@3x.png';
-import HeartEmpty from '../assets/images/icon/Path_Copy2@3x.png';
+import IconText from '../../components/IconText';
+import HeroIcon from '../../assets/images/icon/noun_Superhero_2227044@3x.png';
+import HeartFilled from '../../assets/images/icon/Path@3x.png';
+import HeartEmpty from '../../assets/images/icon/Path_Copy2@3x.png';
 
 import {
   FilterBar,
@@ -14,7 +14,7 @@ import {
   Card,
   CardInfo,
   FavIcon,
-} from './styles';
+} from '../styles';
 
 const Home = ({ characters }) => {
   const [data, setData] = useState([]);

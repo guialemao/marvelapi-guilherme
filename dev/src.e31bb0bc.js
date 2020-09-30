@@ -34342,14 +34342,14 @@ exports.ServerStyleSheet = Ue;
 "production" !== "development" && "undefined" != typeof navigator && "ReactNative" === navigator.product && console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native"), "production" !== "development" && "test" !== "development" && (window["__styled-components-init__"] = window["__styled-components-init__"] || 0, 1 === window["__styled-components-init__"] && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles not rendering properly, errors happening during rehydration process, missing theme prop, and makes your application bigger without a good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window["__styled-components-init__"] += 1);
 var _default = He;
 exports.default = _default;
-},{"react-is":"../node_modules/react-is/index.js","react":"../node_modules/react/index.js","shallowequal":"../node_modules/shallowequal/index.js","@emotion/stylis":"../node_modules/@emotion/stylis/dist/stylis.browser.esm.js","@emotion/unitless":"../node_modules/@emotion/unitless/dist/unitless.browser.esm.js","@emotion/is-prop-valid":"../node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","hoist-non-react-statics":"../node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js","process":"../../../../../.config/yarn/global/node_modules/process/browser.js"}],"utils/fetchCharacters.js":[function(require,module,exports) {
+},{"react-is":"../node_modules/react-is/index.js","react":"../node_modules/react/index.js","shallowequal":"../node_modules/shallowequal/index.js","@emotion/stylis":"../node_modules/@emotion/stylis/dist/stylis.browser.esm.js","@emotion/unitless":"../node_modules/@emotion/unitless/dist/unitless.browser.esm.js","@emotion/is-prop-valid":"../node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","hoist-non-react-statics":"../node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js","process":"../../../../../.config/yarn/global/node_modules/process/browser.js"}],"utils/fetchData.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
-var fetchCharacters = fetch('https://gateway.marvel.com:443/v1/public/characters?limit=100&apikey=d54085a32009432805ffa8746025c8f5&hash=056c2dbfa6bc4260c65e8235dba5dc64&ts=1600986257891').then(function (res) {
+exports.fetchComics = exports.fetchCharacters = void 0;
+var fetchCharacters = fetch('https://gateway.marvel.com:443/v1/public/characters?limit=20&apikey=d54085a32009432805ffa8746025c8f5&hash=056c2dbfa6bc4260c65e8235dba5dc64&ts=1600986257891').then(function (res) {
   if (res.ok) {
     return res.json();
   }
@@ -34358,8 +34358,21 @@ var fetchCharacters = fetch('https://gateway.marvel.com:443/v1/public/characters
 }).then(function (result) {
   return result.data.results;
 });
-var _default = fetchCharacters;
-exports.default = _default;
+exports.fetchCharacters = fetchCharacters;
+
+var fetchComics = function fetchComics(url) {
+  return fetch("".concat(url, "?apikey=d54085a32009432805ffa8746025c8f5&hash=056c2dbfa6bc4260c65e8235dba5dc64&ts=1600986257891")).then(function (res) {
+    if (res.ok) {
+      return res.json();
+    }
+
+    throw Error('API doesn`t respond');
+  }).then(function (result) {
+    return result;
+  });
+};
+
+exports.fetchComics = fetchComics;
 },{}],"../node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":[function(require,module,exports) {
 var arrayLikeToArray = require("./arrayLikeToArray");
 
@@ -34584,7 +34597,7 @@ exports.CardInfo = CardInfo;
 var FavIcon = _styledComponents.default.img(_templateObject7());
 
 exports.FavIcon = FavIcon;
-},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"container/Home.jsx":[function(require,module,exports) {
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"container/Home/index.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34600,15 +34613,15 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _IconText = _interopRequireDefault(require("../components/IconText"));
+var _IconText = _interopRequireDefault(require("../../components/IconText"));
 
-var _noun_Superhero_22270443x = _interopRequireDefault(require("../assets/images/icon/noun_Superhero_2227044@3x.png"));
+var _noun_Superhero_22270443x = _interopRequireDefault(require("../../assets/images/icon/noun_Superhero_2227044@3x.png"));
 
-var _Path3x = _interopRequireDefault(require("../assets/images/icon/Path@3x.png"));
+var _Path3x = _interopRequireDefault(require("../../assets/images/icon/Path@3x.png"));
 
-var _Path_Copy23x = _interopRequireDefault(require("../assets/images/icon/Path_Copy2@3x.png"));
+var _Path_Copy23x = _interopRequireDefault(require("../../assets/images/icon/Path_Copy2@3x.png"));
 
-var _styles = require("./styles");
+var _styles = require("../styles");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -34753,7 +34766,74 @@ var Home = function Home(_ref) {
 
 var _default = Home;
 exports.default = _default;
-},{"@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/IconText":"components/IconText/index.jsx","../assets/images/icon/noun_Superhero_2227044@3x.png":"assets/images/icon/noun_Superhero_2227044@3x.png","../assets/images/icon/Path@3x.png":"assets/images/icon/Path@3x.png","../assets/images/icon/Path_Copy2@3x.png":"assets/images/icon/Path_Copy2@3x.png","./styles":"container/styles.jsx"}],"container/Details.jsx":[function(require,module,exports) {
+},{"@babel/runtime/helpers/toConsumableArray":"../node_modules/@babel/runtime/helpers/toConsumableArray.js","@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../components/IconText":"components/IconText/index.jsx","../../assets/images/icon/noun_Superhero_2227044@3x.png":"assets/images/icon/noun_Superhero_2227044@3x.png","../../assets/images/icon/Path@3x.png":"assets/images/icon/Path@3x.png","../../assets/images/icon/Path_Copy2@3x.png":"assets/images/icon/Path_Copy2@3x.png","../styles":"container/styles.jsx"}],"container/Details/components/Appearance/styles.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CategoryIcon = exports.CategoryGroup = exports.CategoryTitle = exports.Content = void 0;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject4() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 10px 0 0;\n  width: 25px;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  flex-direction: row;\n  align-items: flex-end;\n  font-size: 14px;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 0 10px;\n  font-size: 12px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var Content = _styledComponents.default.div(_templateObject());
+
+exports.Content = Content;
+
+var CategoryTitle = _styledComponents.default.span(_templateObject2());
+
+exports.CategoryTitle = CategoryTitle;
+var CategoryGroup = (0, _styledComponents.default)(Content)(_templateObject3());
+exports.CategoryGroup = CategoryGroup;
+
+var CategoryIcon = _styledComponents.default.img(_templateObject4());
+
+exports.CategoryIcon = CategoryIcon;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"container/Details/components/Appearance/index.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34761,17 +34841,130 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
-
 var _react = _interopRequireDefault(require("react"));
-
-var _styledComponents = _interopRequireDefault(require("styled-components"));
-
-var _reactRouterDom = require("react-router-dom");
 
 var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Appearance = function Appearance(_ref) {
+  var category = _ref.category,
+      icon = _ref.icon,
+      text = _ref.text;
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_styles.Content, null,
+    /*#__PURE__*/
+    _react.default.createElement(_styles.CategoryTitle, null, category),
+    /*#__PURE__*/
+    _react.default.createElement(_styles.CategoryGroup, null,
+    /*#__PURE__*/
+    _react.default.createElement(_styles.CategoryIcon, {
+      src: icon
+    }), text))
+  );
+};
+
+var _default = Appearance;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./styles":"container/Details/components/Appearance/styles.jsx"}],"container/Details/components/Rating/styles.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.RatingIconImg = exports.RatingWrapper = void 0;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject2() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 0 0 10px;\n  width: 105px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 0 20px;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  font-size: 14px;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var RatingWrapper = _styledComponents.default.div(_templateObject());
+
+exports.RatingWrapper = RatingWrapper;
+
+var RatingIconImg = _styledComponents.default.img(_templateObject2());
+
+exports.RatingIconImg = RatingIconImg;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"container/Details/components/Rating/index.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styles = require("./styles");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Rating = function Rating(_ref) {
+  var icon = _ref.icon;
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_styles.RatingWrapper, null, "Rating:",
+    /*#__PURE__*/
+    _react.default.createElement(_styles.RatingIconImg, {
+      src: icon
+    }))
+  );
+};
+
+var _default = Rating;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./styles":"container/Details/components/Rating/styles.jsx"}],"assets/images/icon/Group@3x.png":[function(require,module,exports) {
+module.exports = "/Group@3x.ab730c5f.png";
+},{}],"assets/images/icon/VideoShape@3x.png":[function(require,module,exports) {
+module.exports = "/VideoShape@3x.251d8648.png";
+},{}],"assets/images/icon/Group4@3x.png":[function(require,module,exports) {
+module.exports = "/Group4@3x.5d100211.png";
+},{}],"container/Details/styles.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AppearancesWrapper = exports.HeroPic = exports.HeroInfo = exports.HeroWrapper = void 0;
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject4() {
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin: 0 20px 20px 0;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject3() {
   var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 100%;\n\n  > img {\n    width: 240px;\n  }\n"]);
@@ -34784,7 +34977,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 300px;\n  margin-right: 20px;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n"]);
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  width: 400px;\n  margin-right: 160px;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -34794,7 +34987,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n"]);
+  var data = (0, _taggedTemplateLiteral2.default)(["\n  margin-bottom: 50px;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -34805,41 +34998,124 @@ function _templateObject() {
 
 var HeroWrapper = _styledComponents.default.div(_templateObject());
 
+exports.HeroWrapper = HeroWrapper;
+
 var HeroInfo = _styledComponents.default.div(_templateObject2());
+
+exports.HeroInfo = HeroInfo;
 
 var HeroPic = _styledComponents.default.div(_templateObject3());
 
+exports.HeroPic = HeroPic;
+
+var AppearancesWrapper = _styledComponents.default.div(_templateObject4());
+
+exports.AppearancesWrapper = AppearancesWrapper;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"container/Details/index.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _fetchData = require("../../utils/fetchData");
+
+var _Appearance = _interopRequireDefault(require("./components/Appearance"));
+
+var _Rating = _interopRequireDefault(require("./components/Rating"));
+
+var _styles = require("../styles");
+
+var _Group3x = _interopRequireDefault(require("../../assets/images/icon/Group@3x.png"));
+
+var _VideoShape3x = _interopRequireDefault(require("../../assets/images/icon/VideoShape@3x.png"));
+
+var _Group43x = _interopRequireDefault(require("../../assets/images/icon/Group4@3x.png"));
+
+var _styles2 = require("./styles");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var Details = function Details(_ref) {
   var characters = _ref.characters;
+
+  var _useState = (0, _react.useState)([]),
+      _useState2 = (0, _slicedToArray2.default)(_useState, 2),
+      c = _useState2[0],
+      setC = _useState2[1];
+
   var location = (0, _reactRouterDom.useLocation)();
   var id = location.query.id;
   var findChar = characters.filter(function (char) {
     return char.id === id;
   });
+  var totalComics = findChar[0].comics.available + findChar[0].series.available + findChar[0].stories.available;
   console.log(findChar);
+  (0, _react.useEffect)(function () {
+    var comics = (0, _fetchData.fetchComics)(findChar[0].comics.collectionURI).then(function (res) {
+      return setC(res.data.results);
+    });
+  }, [c]);
+  console.log(c); // const filterOnSaleDate = c.map((comic) => {
+  //   console.log(comic.dates[0].date);
+  // });
+
   return (
     /*#__PURE__*/
     _react.default.createElement(_styles.Wrapper, null,
     /*#__PURE__*/
-    _react.default.createElement(HeroWrapper, null,
+    _react.default.createElement(_styles2.HeroWrapper, null,
     /*#__PURE__*/
-    _react.default.createElement(HeroInfo, null,
+    _react.default.createElement(_styles2.HeroInfo, null,
     /*#__PURE__*/
     _react.default.createElement("h1", null, findChar[0].name),
     /*#__PURE__*/
-    _react.default.createElement("p", null, findChar[0].description)),
+    _react.default.createElement("p", null, findChar[0].description),
     /*#__PURE__*/
-    _react.default.createElement(HeroPic, null,
+    _react.default.createElement(_styles2.AppearancesWrapper, null,
+    /*#__PURE__*/
+    _react.default.createElement(_Appearance.default, {
+      category: "Quadrinhos",
+      icon: _Group3x.default,
+      text: totalComics
+    }),
+    /*#__PURE__*/
+    _react.default.createElement(_Appearance.default, {
+      category: "Filmes",
+      icon: _VideoShape3x.default,
+      text: "10"
+    })),
+    /*#__PURE__*/
+    _react.default.createElement(_Rating.default, {
+      icon: _Group43x.default
+    }), "\xDAltimo quadrinho: 13 fev. 2020"),
+    /*#__PURE__*/
+    _react.default.createElement(_styles2.HeroPic, null,
     /*#__PURE__*/
     _react.default.createElement("img", {
       src: "".concat(findChar[0].thumbnail.path, ".").concat(findChar[0].thumbnail.extension)
-    }))))
+    }))),
+    /*#__PURE__*/
+    _react.default.createElement("div", null,
+    /*#__PURE__*/
+    _react.default.createElement("h2", null, "Lan\xE7amentos")))
   );
 };
 
 var _default = Details;
 exports.default = _default;
-},{"@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./styles":"container/styles.jsx"}],"assets/images/logo/Group@3x.png":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../../utils/fetchData":"utils/fetchData.js","./components/Appearance":"container/Details/components/Appearance/index.jsx","./components/Rating":"container/Details/components/Rating/index.jsx","../styles":"container/styles.jsx","../../assets/images/icon/Group@3x.png":"assets/images/icon/Group@3x.png","../../assets/images/icon/VideoShape@3x.png":"assets/images/icon/VideoShape@3x.png","../../assets/images/icon/Group4@3x.png":"assets/images/icon/Group4@3x.png","./styles":"container/Details/styles.jsx"}],"assets/images/logo/Group@3x.png":[function(require,module,exports) {
 module.exports = "/Group@3x.1b905090.png";
 },{}],"assets/images/icon/Shape@3x.png":[function(require,module,exports) {
 module.exports = "/Shape@3x.2069bf6d.png";
@@ -35028,7 +35304,7 @@ var _reactRouterDom = require("react-router-dom");
 
 var _styledComponents = require("styled-components");
 
-var _fetchCharacters = _interopRequireDefault(require("./utils/fetchCharacters"));
+var _fetchData = require("./utils/fetchData");
 
 var _Home = _interopRequireDefault(require("./container/Home"));
 
@@ -35068,7 +35344,7 @@ var App = function App() {
   var location = (0, _reactRouterDom.useLocation)();
   var pathname = location.pathname;
   (0, _react.useEffect)(function () {
-    _fetchCharacters.default.then(function (res) {
+    _fetchData.fetchCharacters.then(function (res) {
       setCharacters(res);
     });
   }, [characters]);
@@ -35115,7 +35391,7 @@ var App = function App() {
 
 var _default = App;
 exports.default = _default;
-},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./utils/fetchCharacters":"utils/fetchCharacters.js","./container/Home":"container/Home.jsx","./container/Details":"container/Details.jsx","./components/Header":"components/Header/index.jsx","./components/Footer":"components/Footer/index.jsx"}],"index.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/slicedToArray":"../node_modules/@babel/runtime/helpers/slicedToArray.js","@babel/runtime/helpers/taggedTemplateLiteral":"../node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./utils/fetchData":"utils/fetchData.js","./container/Home":"container/Home/index.jsx","./container/Details":"container/Details/index.jsx","./components/Header":"components/Header/index.jsx","./components/Footer":"components/Footer/index.jsx"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -35173,7 +35449,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65356" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62594" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
