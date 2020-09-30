@@ -30,12 +30,7 @@ const Details = ({ characters }) => {
 
   useEffect(() => {
     fetchComics(findChar[0].comics.collectionURI).then((res) => setComicArr([res]));
-  }, [comicArr]);
-  console.log(comicArr);
-
-  // const filterOnSaleDate = c.map((comic) => {
-  //   console.log(comic.dates[0].date);
-  // });
+  }, [id]);
 
   return (
     <Wrapper>
