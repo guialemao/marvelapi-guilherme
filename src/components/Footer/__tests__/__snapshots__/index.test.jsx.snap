@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Footer component should create a snapshot 1`] = `
+<DocumentFragment>
+  <footer
+    class="sc-bdnylx jXptSh"
+  />
+</DocumentFragment>
+`;

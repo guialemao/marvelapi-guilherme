@@ -23,6 +23,8 @@ const Home = ({ characters }) => {
   const [sort, setSort] = useState(false);
   const [favArr, setFavArr] = useState([]);
 
+  console.log(data);
+
   useEffect(() => {
     setData(characters);
   }, [characters]);

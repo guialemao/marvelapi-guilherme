@@ -7,10 +7,16 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel src/index.html -d dev",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "test": "jest",
+    "testDev": "jest --watchAll --no-cache",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
     "assets": "^3.0.1",
+    "jest": "^26.4.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
