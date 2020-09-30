@@ -34646,7 +34646,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Home = function Home(_ref) {
   var characters = _ref.characters;
 
-  var _useState = (0, _react.useState)([]),
+  var _useState = (0, _react.useState)(characters),
       _useState2 = (0, _slicedToArray2.default)(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
@@ -34714,6 +34714,7 @@ var Home = function Home(_ref) {
       return handleOrderByName();
     }
   }), /*#__PURE__*/_react.default.createElement(_IconText.default, {
+    "data-testid": "fav-only",
     icon: _Path3x.default,
     text: "Somente favoritos",
     handleClick: function handleClick() {
@@ -34724,7 +34725,9 @@ var Home = function Home(_ref) {
       return item.id === character.id;
     });
     var detailUrl = character.name.toLowerCase().replace(/ /g, '-');
-    return /*#__PURE__*/_react.default.createElement(_styles.Card, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    return /*#__PURE__*/_react.default.createElement(_styles.Card, {
+      key: character.id
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: {
         pathname: "/details/".concat(detailUrl),
         query: {
@@ -35316,7 +35319,7 @@ var GlobalStyle = (0, _styledComponents.createGlobalStyle)(_templateObject(), fu
 });
 
 var App = function App() {
-  var _useState = (0, _react.useState)(),
+  var _useState = (0, _react.useState)([]),
       _useState2 = (0, _slicedToArray2.default)(_useState, 2),
       characters = _useState2[0],
       setCharacters = _useState2[1];
@@ -35401,7 +35404,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50168" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64020" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

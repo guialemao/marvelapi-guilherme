@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [characters, setCharacters] = useState();
+  const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const { pathname } = location;
 

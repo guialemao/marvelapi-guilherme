@@ -19,7 +19,7 @@ import {
 import Wrapper from '../styles';
 
 const Home = ({ characters }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(characters);
   const [sort, setSort] = useState(false);
   const [favArr, setFavArr] = useState([]);
 
@@ -74,6 +74,7 @@ const Home = ({ characters }) => {
             handleClick={() => handleOrderByName()}
           />
           <IconText
+            data-testid="fav-only"
             icon={HeartFilled}
             text="Somente favoritos"
             handleClick={() => handleShowFavs()}
@@ -85,7 +86,7 @@ const Home = ({ characters }) => {
           const checkFav = favArr.some((item) => item.id === character.id);
           const detailUrl = character.name.toLowerCase().replace(/ /g, '-');
           return (
-            <Card>
+            <Card key={character.id}>
               <Link
                 to={{
                   pathname: `/details/${detailUrl}`,
