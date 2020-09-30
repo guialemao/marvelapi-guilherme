@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 
 import { fetchComics } from '../../utils/fetchData';
@@ -6,33 +7,31 @@ import { fetchComics } from '../../utils/fetchData';
 import Appearance from './components/Appearance';
 import Rating from './components/Rating';
 
-import { Wrapper } from '../styles';
-
 import Book from '../../assets/images/icon/Group@3x.png';
 import Video from '../../assets/images/icon/VideoShape@3x.png';
 import RatingIcon from '../../assets/images/icon/Group4@3x.png';
 
-import { HeroWrapper, HeroInfo, HeroPic, AppearancesWrapper } from './styles';
+import Wrapper from '../styles';
+
+import {
+  HeroWrapper, HeroInfo, HeroPic, AppearancesWrapper,
+} from './styles';
 
 const Details = ({ characters }) => {
-  const [c, setC] = useState([]);
+  const [comicArr, setComicArr] = useState([]);
   const location = useLocation();
   const { id } = location.query;
   const findChar = characters.filter((char) => char.id === id);
-  const totalComics =
-    findChar[0].comics.available +
-    findChar[0].series.available +
-    findChar[0].stories.available;
+  const totalComics = findChar[0].comics.available
+    + findChar[0].series.available
+    + findChar[0].stories.available;
 
   console.log(findChar);
 
   useEffect(() => {
-    const comics = fetchComics(findChar[0].comics.collectionURI).then((res) =>
-      setC(res.data.results),
-    );
-  }, [c]);
-
-  console.log(c);
+    fetchComics(findChar[0].comics.collectionURI).then((res) => setComicArr([res]));
+  }, [comicArr]);
+  console.log(comicArr);
 
   // const filterOnSaleDate = c.map((comic) => {
   //   console.log(comic.dates[0].date);
@@ -63,6 +62,10 @@ const Details = ({ characters }) => {
       </div>
     </Wrapper>
   );
+};
+
+Details.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Details;

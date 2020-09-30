@@ -1,23 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const IconTextWrapper = styled.div`
-  margin-left: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Icon = styled.img`
-  width: 17px;
-  margin-right: 10px;
-`;
-
-const FilterText = styled.span`
-  color: #fa7c7c;
-  cursor: pointer;
-`;
+import { IconTextWrapper, Icon, FilterText } from './styles';
 
 const IconText = ({ icon, text, handleClick }) => (
   <IconTextWrapper>
@@ -25,5 +9,11 @@ const IconText = ({ icon, text, handleClick }) => (
     <FilterText onClick={handleClick}>{text}</FilterText>
   </IconTextWrapper>
 );
+
+IconText.propTypes = {
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
 
 export default IconText;

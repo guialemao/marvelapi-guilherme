@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import IconText from '../../components/IconText';
@@ -9,12 +10,13 @@ import HeartEmpty from '../../assets/images/icon/Path_Copy2@3x.png';
 import {
   FilterBar,
   FilterGroup,
-  Wrapper,
   CardWrapper,
   Card,
   CardInfo,
   FavIcon,
-} from '../styles';
+} from './styles';
+
+import Wrapper from '../styles';
 
 const Home = ({ characters }) => {
   const [data, setData] = useState([]);
@@ -114,6 +116,10 @@ const Home = ({ characters }) => {
       </CardWrapper>
     </Wrapper>
   );
+};
+
+Home.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Home;
