@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 
 import IconText from '../index';
 
@@ -21,7 +21,12 @@ const mockComponent = {
 const { icon, text, handleClick } = mockComponent;
 
 const component = (
-  <IconText icon={icon} text={text} handleClick={handleClick} />
+  <IconText
+    data-testid="order-by-name"
+    icon={icon}
+    text={text}
+    handleClick={handleClick}
+  />
 );
 
 describe('Testing Footer component', () => {
@@ -37,7 +42,9 @@ describe('Testing Footer component', () => {
   });
 
   it('test order of array on click', () => {
-    const { getByText } = render(component);
-    expect(getByText('Ordernar por nome - A/Z')).toBeTruthy();
+    const { getByTestId } = render(component);
+    fireEvent.click(getByTestId('order-by-name'));
+
+    expect(handleClick).toHaveBeenCalled();
   });
 });

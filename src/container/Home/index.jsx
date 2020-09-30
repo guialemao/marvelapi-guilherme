@@ -23,8 +23,6 @@ const Home = ({ characters }) => {
   const [sort, setSort] = useState(false);
   const [favArr, setFavArr] = useState([]);
 
-  console.log(data);
-
   useEffect(() => {
     setData(characters);
   }, [characters]);
@@ -70,6 +68,7 @@ const Home = ({ characters }) => {
           : `Encontrado ${data.length} herói`}
         <FilterGroup>
           <IconText
+            data-testid="order-by-name"
             icon={HeroIcon}
             text="Ordernar por nome - A/Z"
             handleClick={() => handleOrderByName()}

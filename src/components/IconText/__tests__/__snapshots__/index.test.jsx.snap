@@ -4,6 +4,7 @@ exports[`Testing Footer component should create a snapshot 1`] = `
 <DocumentFragment>
   <div
     class="sc-bdnylx cfFKSt"
+    data-testid="order-by-name"
   >
     <img
       alt=""

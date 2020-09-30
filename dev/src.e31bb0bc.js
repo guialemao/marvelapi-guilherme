@@ -34457,16 +34457,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var IconText = function IconText(_ref) {
   var icon = _ref.icon,
       text = _ref.text,
-      handleClick = _ref.handleClick;
-  return /*#__PURE__*/_react.default.createElement(_styles.IconTextWrapper, null, /*#__PURE__*/_react.default.createElement(_styles.Icon, {
+      handleClick = _ref.handleClick,
+      dataTestid = _ref['data-testid'];
+  return /*#__PURE__*/_react.default.createElement(_styles.IconTextWrapper, {
+    "data-testid": dataTestid,
+    onClick: handleClick
+  }, /*#__PURE__*/_react.default.createElement(_styles.Icon, {
     src: icon,
     alt: ""
-  }), /*#__PURE__*/_react.default.createElement(_styles.FilterText, {
-    onClick: handleClick
-  }, text));
+  }), /*#__PURE__*/_react.default.createElement(_styles.FilterText, null, text));
 };
 
 IconText.propTypes = {
+  'data-testid': _propTypes.default.string.isRequired,
   icon: _propTypes.default.string.isRequired,
   text: _propTypes.default.string.isRequired,
   handleClick: _propTypes.default.func.isRequired
@@ -34658,7 +34661,6 @@ var Home = function Home(_ref) {
       favArr = _useState6[0],
       setFavArr = _useState6[1];
 
-  console.log(data);
   (0, _react.useEffect)(function () {
     setData(characters);
   }, [characters]);
@@ -34705,6 +34707,7 @@ var Home = function Home(_ref) {
   };
 
   return /*#__PURE__*/_react.default.createElement(_styles2.default, null, /*#__PURE__*/_react.default.createElement(_styles.FilterBar, null, data.length > 1 ? "Encontrados ".concat(data.length, " her\xF3is") : "Encontrado ".concat(data.length, " her\xF3i"), /*#__PURE__*/_react.default.createElement(_styles.FilterGroup, null, /*#__PURE__*/_react.default.createElement(_IconText.default, {
+    "data-testid": "order-by-name",
     icon: _noun_Superhero_22270443x.default,
     text: "Ordernar por nome - A/Z",
     handleClick: function handleClick() {
