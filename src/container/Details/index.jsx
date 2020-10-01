@@ -28,7 +28,8 @@ const Details = ({ characters }) => {
     + findChar.stories.available;
 
   useEffect(() => {
-    fetchComics(findChar.comics.collectionURI).then((res) => setComicArr(res));
+    const url = findChar.comics.collectionURI.replace(/^http:/, 'https:');
+    fetchComics(url).then((res) => setComicArr(res));
   }, [id]);
 
   const ComicList = styled.ul`

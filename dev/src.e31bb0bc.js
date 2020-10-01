@@ -36024,7 +36024,8 @@ var Details = function Details(_ref) {
   });
   var totalComics = findChar.comics.available + findChar.series.available + findChar.stories.available;
   (0, _react.useEffect)(function () {
-    (0, _fetchData.fetchComics)(findChar.comics.collectionURI).then(function (res) {
+    var url = findChar.comics.collectionURI.replace(/^http:/, 'https:');
+    (0, _fetchData.fetchComics)(url).then(function (res) {
       return setComicArr(res);
     });
   }, [id]);
@@ -36378,7 +36379,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52428" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53790" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
