@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 
@@ -21,23 +22,40 @@ const Details = ({ characters }) => {
   const [comicArr, setComicArr] = useState([]);
   const location = useLocation();
   const { id } = location.query;
-  const findChar = characters.filter((char) => char.id === id);
-  const totalComics = findChar[0].comics.available
-    + findChar[0].series.available
-    + findChar[0].stories.available;
-
-  console.log(findChar);
+  const findChar = characters.find((char) => char.id === id);
+  const totalComics = findChar.comics.available
+    + findChar.series.available
+    + findChar.stories.available;
 
   useEffect(() => {
-    fetchComics(findChar[0].comics.collectionURI).then((res) => setComicArr([res]));
+    fetchComics(findChar.comics.collectionURI).then((res) => setComicArr(res));
   }, [id]);
+
+  const ComicList = styled.ul`
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+
+    li {
+      width: 100px;
+    }
+  `;
+
+  const ComicImg = styled.img`
+    width: 100px;
+    display: block
+  `;
 
   return (
     <Wrapper>
       <HeroWrapper>
         <HeroInfo>
-          <h1>{findChar[0].name}</h1>
-          <p>{findChar[0].description}</p>
+          <h1>{findChar.name}</h1>
+          <p>{findChar.description}</p>
           <AppearancesWrapper>
             <Appearance category="Quadrinhos" icon={Book} text={totalComics} />
             <Appearance category="Filmes" icon={Video} text="10" />
@@ -48,12 +66,22 @@ const Details = ({ characters }) => {
 
         <HeroPic>
           <img
-            src={`${findChar[0].thumbnail.path}.${findChar[0].thumbnail.extension}`}
+            src={`${findChar.thumbnail.path}.${findChar.thumbnail.extension}`}
           />
         </HeroPic>
       </HeroWrapper>
       <div>
         <h2>Lançamentos</h2>
+        <ComicList>
+          {
+         comicArr.map((comic) => (
+           <li>
+             <ComicImg src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} />
+             {comic.title}
+           </li>
+         ))
+        }
+        </ComicList>
       </div>
     </Wrapper>
   );
