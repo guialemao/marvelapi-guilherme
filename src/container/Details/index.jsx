@@ -36,13 +36,14 @@ const Details = ({ characters }) => {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
 
     li {
-      width: 100px;
+      width: calc(13% - 5px);
+      margin-right: 5px;
     }
   `;
 
